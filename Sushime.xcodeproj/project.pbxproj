@@ -17,6 +17,7 @@
 		7435AD02284B865400EC8DFF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD01284B865400EC8DFF /* Persistence.swift */; };
 		7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD03284B865400EC8DFF /* Sushime.xcdatamodeld */; };
 		7435AD0D284B8C2200EC8DFF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD0C284B8C2200EC8DFF /* RootView.swift */; };
+		743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8D3285F8483000B16AA /* SelectionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7435AD01284B865400EC8DFF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7435AD04284B865400EC8DFF /* Sushime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sushime.xcdatamodel; sourceTree = "<group>"; };
 		7435AD0C284B8C2200EC8DFF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		743CB8D3285F8483000B16AA /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				7431F04F285F37CB007F59B9 /* RoomView.swift */,
+				743CB8D3285F8483000B16AA /* SelectionButton.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */,
 				7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */,
 				7431F050285F37CB007F59B9 /* RoomView.swift in Sources */,
+				743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */,
 				7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
 				7435AD0D284B8C2200EC8DFF /* RootView.swift in Sources */,
@@ -329,8 +333,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,8 +363,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
