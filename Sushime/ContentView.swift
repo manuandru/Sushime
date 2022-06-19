@@ -33,12 +33,15 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button {
+                        addItem()
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
             }
             Text("Select an item")
+
         }
     }
 

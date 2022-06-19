@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F04D285F36AD007F59B9 /* AccountView.swift */; };
+		7431F050285F37CB007F59B9 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F04F285F37CB007F59B9 /* RoomView.swift */; };
+		7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F052285F3852007F59B9 /* RestaurantView.swift */; };
 		7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435ACF8284B865300EC8DFF /* SushimeApp.swift */; };
 		7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435ACFA284B865300EC8DFF /* ContentView.swift */; };
 		7435ACFD284B865400EC8DFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7435ACFC284B865400EC8DFF /* Assets.xcassets */; };
 		7435AD00284B865400EC8DFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7435ACFF284B865400EC8DFF /* Preview Assets.xcassets */; };
 		7435AD02284B865400EC8DFF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD01284B865400EC8DFF /* Persistence.swift */; };
 		7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD03284B865400EC8DFF /* Sushime.xcdatamodeld */; };
+		7435AD0D284B8C2200EC8DFF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD0C284B8C2200EC8DFF /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7431F04D285F36AD007F59B9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		7431F04F285F37CB007F59B9 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		7431F052285F3852007F59B9 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		7435ACF5284B865300EC8DFF /* Sushime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sushime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7435ACF8284B865300EC8DFF /* SushimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SushimeApp.swift; sourceTree = "<group>"; };
 		7435ACFA284B865300EC8DFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +30,7 @@
 		7435ACFF284B865400EC8DFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7435AD01284B865400EC8DFF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7435AD04284B865400EC8DFF /* Sushime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sushime.xcdatamodel; sourceTree = "<group>"; };
+		7435AD0C284B8C2200EC8DFF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7431F04B285F364F007F59B9 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				7431F04F285F37CB007F59B9 /* RoomView.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		7431F04C285F3699007F59B9 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				7431F04D285F36AD007F59B9 /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		7431F051285F3845007F59B9 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				7431F052285F3852007F59B9 /* RestaurantView.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
 		7435ACEC284B865300EC8DFF = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +87,7 @@
 		7435ACF7284B865300EC8DFF /* Sushime */ = {
 			isa = PBXGroup;
 			children = (
+				7435AD0B284B8BF600EC8DFF /* View */,
 				7435ACF8284B865300EC8DFF /* SushimeApp.swift */,
 				7435ACFA284B865300EC8DFF /* ContentView.swift */,
 				7435ACFC284B865400EC8DFF /* Assets.xcassets */,
@@ -71,6 +104,17 @@
 				7435ACFF284B865400EC8DFF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7435AD0B284B8BF600EC8DFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7431F051285F3845007F59B9 /* Restaurant */,
+				7431F04C285F3699007F59B9 /* Account */,
+				7431F04B285F364F007F59B9 /* Room */,
+				7435AD0C284B8C2200EC8DFF /* RootView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */,
 				7435AD02284B865400EC8DFF /* Persistence.swift in Sources */,
 				7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */,
+				7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */,
+				7431F050285F37CB007F59B9 /* RoomView.swift in Sources */,
 				7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
+				7435AD0D284B8C2200EC8DFF /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sushime/Preview Content\"";
+				DEVELOPMENT_TEAM = FPRUXM55QR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -291,7 +340,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,6 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sushime/Preview Content\"";
+				DEVELOPMENT_TEAM = FPRUXM55QR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -319,7 +369,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
