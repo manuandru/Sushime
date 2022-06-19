@@ -8,13 +8,42 @@
 import SwiftUI
 
 struct SelectionButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    let action: () -> ()
+    let content: String
+    let image: String
+    let color: UIColor
+    
+    private let opacity = 0.8
+    private let imageFrameSize = CGFloat(60)
+    private let buttonFrameSize = CGFloat(175)
+    private let cornerRadius = CGFloat(60)
+    
+    var body : some View {
+        Button {
+            action()
+        } label: {
+            ZStack {
+                Color(color)
+                    .opacity(opacity)
+                HStack() {
+                    Spacer()
+                    Text(content)
+                        .fontWeight(.bold)
+                    Spacer()
+                    Image(systemName: image)
+                        .resizable()
+                        .frame(width: imageFrameSize, height: imageFrameSize, alignment: .center)
+                    Spacer()
+                }
+                .font(.largeTitle)
+                .foregroundColor(.black)
+            }
+            .frame(height: buttonFrameSize, alignment: .center)
+            
+        }
+        .cornerRadius(cornerRadius)
+        .padding([.top, .bottom])
     }
 }
 
-struct SelectionButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectionButton()
-    }
-}

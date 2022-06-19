@@ -9,12 +9,29 @@ import SwiftUI
 
 struct RoomView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center) {
+            Text("Room")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding()
+            Spacer()
+            
+            SelectionButton(action: {
+                
+            }, content: "Create\nRoom", image: "plus.circle", color: .systemGreen)
+            
+            SelectionButton(action: {
+                
+            }, content: "Join\nRoom", image: "person.badge.plus", color: .systemCyan)
+
+            Spacer()
+        }.padding()
     }
 }
 
 struct RoomView_Previews: PreviewProvider {
     static var previews: some View {
         RoomView()
+            .previewInterfaceOrientation(.portrait)
     }
 }
