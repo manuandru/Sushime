@@ -12,8 +12,7 @@ struct RoomView: View {
         VStack(alignment: .center) {
             Text("Room")
                 .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding()
+                
             Spacer()
             
             SelectionButton(action: {
