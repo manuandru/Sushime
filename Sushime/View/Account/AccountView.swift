@@ -6,14 +6,29 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct AccountView: View {
     var body: some View {
         VStack {
             Text("Account")
                 .font(.largeTitle)
-            
+            Divider()
+            UserFormView()
+                .padding()
+            Divider()
+            Text("I tuoi ordini")
+                .font(.largeTitle)
+            List {
+                Text("Ciao")
+                Text("Ciao")
+                Text("Ciao")
+                Text("Ciao")
+                Text("Ciao")
+                Text("Ciao")
+            }
         }
+        .padding()
     }
 }
 

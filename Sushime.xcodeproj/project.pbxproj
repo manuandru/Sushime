@@ -19,6 +19,10 @@
 		7435AD0D284B8C2200EC8DFF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7435AD0C284B8C2200EC8DFF /* RootView.swift */; };
 		743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8D3285F8483000B16AA /* SelectionButton.swift */; };
 		743CB8D6285F95DB000B16AA /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8D5285F95DB000B16AA /* SplashScreenView.swift */; };
+		743CB8DC2860AB22000B16AA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8DB2860AB22000B16AA /* ViewModel.swift */; };
+		743CB8DE2860AB2E000B16AA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8DD2860AB2E000B16AA /* Model.swift */; };
+		743CB8E12860C79A000B16AA /* cameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8E02860C79A000B16AA /* cameraHelper.swift */; };
+		743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8E32860CD53000B16AA /* UserFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		7435AD0C284B8C2200EC8DFF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		743CB8D3285F8483000B16AA /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		743CB8D5285F95DB000B16AA /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		743CB8DB2860AB22000B16AA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		743CB8DD2860AB2E000B16AA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		743CB8E02860C79A000B16AA /* cameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraHelper.swift; sourceTree = "<group>"; };
+		743CB8E32860CD53000B16AA /* UserFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		7431F04C285F3699007F59B9 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				743CB8E22860CD2B000B16AA /* UserForm */,
 				7431F04D285F36AD007F59B9 /* AccountView.swift */,
 			);
 			path = Account;
@@ -92,6 +101,8 @@
 		7435ACF7284B865300EC8DFF /* Sushime */ = {
 			isa = PBXGroup;
 			children = (
+				743CB8DA2860AAFB000B16AA /* Model */,
+				743CB8D92860AAE4000B16AA /* ViewModel */,
 				7435AD0B284B8BF600EC8DFF /* View */,
 				7435ACF8284B865300EC8DFF /* SushimeApp.swift */,
 				7435ACFA284B865300EC8DFF /* ContentView.swift */,
@@ -121,6 +132,31 @@
 				743CB8D5285F95DB000B16AA /* SplashScreenView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		743CB8D92860AAE4000B16AA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				743CB8DB2860AB22000B16AA /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		743CB8DA2860AAFB000B16AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				743CB8DD2860AB2E000B16AA /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		743CB8E22860CD2B000B16AA /* UserForm */ = {
+			isa = PBXGroup;
+			children = (
+				743CB8E02860C79A000B16AA /* cameraHelper.swift */,
+				743CB8E32860CD53000B16AA /* UserFormView.swift */,
+			);
+			path = UserForm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +231,11 @@
 			files = (
 				7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */,
 				7435AD02284B865400EC8DFF /* Persistence.swift in Sources */,
+				743CB8E12860C79A000B16AA /* cameraHelper.swift in Sources */,
+				743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */,
 				7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */,
+				743CB8DE2860AB2E000B16AA /* Model.swift in Sources */,
+				743CB8DC2860AB22000B16AA /* ViewModel.swift in Sources */,
 				7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */,
 				7431F050285F37CB007F59B9 /* RoomView.swift in Sources */,
 				743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */,
@@ -334,11 +374,12 @@
 				DEVELOPMENT_TEAM = FPRUXM55QR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sushime/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera to take profile photo for the user";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -364,11 +405,12 @@
 				DEVELOPMENT_TEAM = FPRUXM55QR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sushime/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera to take profile photo for the user";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
