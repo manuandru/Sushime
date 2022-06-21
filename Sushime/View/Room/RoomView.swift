@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RoomView: View {
+    @EnvironmentObject var appPath: AppPath
+    
     var body: some View {
         VStack(alignment: .center) {
             Text("Room")
@@ -20,11 +22,16 @@ struct RoomView: View {
             }, content: "Create\nRoom", image: "plus.circle", color: .systemGreen)
             
             SelectionButton(action: {
-                
+                appPath.presentJoin = true
             }, content: "Join\nRoom", image: "person.badge.plus", color: .systemCyan)
 
             Spacer()
         }.padding()
+            .sheet(isPresented: $appPath.presentJoin) {
+                Form {
+                    TextField("OK", text: $appPath.tableId)
+                }
+            }
     }
 }
 
