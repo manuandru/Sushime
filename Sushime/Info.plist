@@ -15,5 +15,16 @@
 			</array>
 		</dict>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>plus.circle</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Crea tavolo</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>createTable</string>
+		</dict>
+	</array>
 </dict>
 </plist>

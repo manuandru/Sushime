@@ -12,6 +12,9 @@ struct SushimeApp: App {
     let persistenceController = PersistenceController.shared
     
     @StateObject var appPath = AppPath()
+    
+    // For handle home shortcut
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
 
     var body: some Scene {
         WindowGroup {
@@ -20,10 +23,22 @@ struct SushimeApp: App {
             SplashScreenView()
                 .environmentObject(appPath)
                 .onOpenURL { url in
-                    if let tableId = url.host {
-                        appPath.tab = .room
-                        appPath.presentJoin = true
-                        appPath.tableId = tableId
+                    appPath.restore()
+                    if let command = url.host {
+                        switch command {
+                        case "create":
+                            appPath.tab = .room
+                            appPath.presentCreate = true
+                            break
+
+                        case "table":
+                            appPath.tab = .room
+                            appPath.presentJoin = true
+                            appPath.tableId = url.lastPathComponent
+                            break
+                        default: break
+
+                        }
                     }
                 }
         }

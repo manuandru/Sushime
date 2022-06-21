@@ -32,6 +32,12 @@ struct RoomView: View {
                     TextField("OK", text: $appPath.tableId)
                 }
             }
+            .sheet(isPresented: $appPath.presentCreate) {
+                VStack {
+                    Text("Crea")
+                        .font(.largeTitle)
+                }
+            }
     }
 }
 
