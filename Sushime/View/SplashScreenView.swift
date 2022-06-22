@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SplashScreenView: View {
     @State var splashScreen = true
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         VStack {
@@ -22,6 +24,7 @@ struct SplashScreenView: View {
             }
         }
         .onAppear {
+            PersistenceController.fetchPresetData(with: viewContext)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation {
                     self.splashScreen = false

@@ -13,7 +13,7 @@ struct SushimeApp: App {
     
     @StateObject var appPath = AppPath()
     
-    // For handle home shortcut
+    // To handle home shortcut
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
 
     var body: some Scene {
@@ -41,6 +41,7 @@ struct SushimeApp: App {
                         }
                     }
                 }
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
