@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <entity name="Categoria" representedClassName="Categoria" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="piatti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Piatto" inverseName="categoria" inverseEntity="Piatto"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Ordine" representedClassName="Ordine" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="inPiattoOrdine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PiattoInOrdine" inverseName="ordine" inverseEntity="PiattoInOrdine"/>
+        <relationship name="ristorante" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ristorante" inverseName="ordini" inverseEntity="Ristorante"/>
+    </entity>
+    <entity name="Piatto" representedClassName="Piatto" syncable="YES" codeGenerationType="class">
+        <attribute name="descrizione" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="categoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categoria" inverseName="piatti" inverseEntity="Categoria"/>
+        <relationship name="inPiattoOrdini" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PiattoInOrdine" inverseName="piatto" inverseEntity="PiattoInOrdine"/>
+    </entity>
+    <entity name="PiattoInOrdine" representedClassName="PiattoInOrdine" syncable="YES" codeGenerationType="class">
+        <attribute name="quantita" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ordine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ordine" inverseName="inPiattoOrdine" inverseEntity="Ordine"/>
+        <relationship name="piatto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Piatto" inverseName="inPiattoOrdini" inverseEntity="Piatto"/>
+    </entity>
+    <entity name="Ristorante" representedClassName="Ristorante" syncable="YES" codeGenerationType="class">
+        <attribute name="descrizione" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="ordini" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ordine" inverseName="ristorante" inverseEntity="Ordine"/>
+    </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="14"/>
-        <element name="Entity" positionX="-63" positionY="-9" width="128" height="29"/>
+        <element name="Categoria" positionX="-566.640625" positionY="-0.734375" width="128" height="58"/>
+        <element name="Ordine" positionX="155.9375" positionY="28.8828125" width="128" height="88"/>
+        <element name="Piatto" positionX="-324.4921875" positionY="-0.55078125" width="129.546875" height="73"/>
+        <element name="PiattoInOrdine" positionX="-75.66796875" positionY="-40.25390625" width="128" height="88"/>
+        <element name="Ristorante" positionX="-145.8359375" positionY="125.921875" width="128" height="103"/>
+        <element name="Item" positionX="-264.296875" positionY="-224.7421875" width="128" height="44"/>
     </elements>
 </model>

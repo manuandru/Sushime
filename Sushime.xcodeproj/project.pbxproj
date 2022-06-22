@@ -24,6 +24,11 @@
 		743CB8DE2860AB2E000B16AA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8DD2860AB2E000B16AA /* Model.swift */; };
 		743CB8E12860C79A000B16AA /* cameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8E02860C79A000B16AA /* cameraHelper.swift */; };
 		743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8E32860CD53000B16AA /* UserFormView.swift */; };
+		745C22A7286372D0003693B5 /* piatti.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A4286372D0003693B5 /* piatti.csv */; };
+		745C22A8286372D0003693B5 /* categorie.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A5286372D0003693B5 /* categorie.csv */; };
+		745C22A9286372D0003693B5 /* ristoranti.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A6286372D0003693B5 /* ristoranti.csv */; };
+		745C22AC28638334003693B5 /* DBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745C22AB28638334003693B5 /* DBExtension.swift */; };
+		745C22AE28638DFC003693B5 /* GPSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745C22AD28638DFC003693B5 /* GPSView.swift */; };
 		74F976F428622FF300FD8FEF /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F976F328622FF300FD8FEF /* AppPath.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +51,11 @@
 		743CB8DD2860AB2E000B16AA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		743CB8E02860C79A000B16AA /* cameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraHelper.swift; sourceTree = "<group>"; };
 		743CB8E32860CD53000B16AA /* UserFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormView.swift; sourceTree = "<group>"; };
+		745C22A4286372D0003693B5 /* piatti.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = piatti.csv; sourceTree = "<group>"; };
+		745C22A5286372D0003693B5 /* categorie.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = categorie.csv; sourceTree = "<group>"; };
+		745C22A6286372D0003693B5 /* ristoranti.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ristoranti.csv; sourceTree = "<group>"; };
+		745C22AB28638334003693B5 /* DBExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBExtension.swift; sourceTree = "<group>"; };
+		745C22AD28638DFC003693B5 /* GPSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSView.swift; sourceTree = "<group>"; };
 		74F976F328622FF300FD8FEF /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +70,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		741E9F38286369F100BB1216 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				745C22A5286372D0003693B5 /* categorie.csv */,
+				745C22A4286372D0003693B5 /* piatti.csv */,
+				745C22A6286372D0003693B5 /* ristoranti.csv */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		7431F04B285F364F007F59B9 /* Room */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7431F052285F3852007F59B9 /* RestaurantView.swift */,
+				745C22AD28638DFC003693B5 /* GPSView.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -105,6 +126,8 @@
 		7435ACF7284B865300EC8DFF /* Sushime */ = {
 			isa = PBXGroup;
 			children = (
+				745C22AA28638324003693B5 /* Utils */,
+				741E9F38286369F100BB1216 /* resources */,
 				743CB8DA2860AAFB000B16AA /* Model */,
 				743CB8D92860AAE4000B16AA /* ViewModel */,
 				7435AD0B284B8BF600EC8DFF /* View */,
@@ -165,6 +188,14 @@
 			path = UserForm;
 			sourceTree = "<group>";
 		};
+		745C22AA28638324003693B5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				745C22AB28638334003693B5 /* DBExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,7 +254,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745C22A7286372D0003693B5 /* piatti.csv in Resources */,
 				7435AD00284B865400EC8DFF /* Preview Assets.xcassets in Resources */,
+				745C22A9286372D0003693B5 /* ristoranti.csv in Resources */,
+				745C22A8286372D0003693B5 /* categorie.csv in Resources */,
 				7435ACFD284B865400EC8DFF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +272,7 @@
 				7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */,
 				7435AD02284B865400EC8DFF /* Persistence.swift in Sources */,
 				743CB8E12860C79A000B16AA /* cameraHelper.swift in Sources */,
+				745C22AE28638DFC003693B5 /* GPSView.swift in Sources */,
 				743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */,
 				7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */,
 				743CB8DE2860AB2E000B16AA /* Model.swift in Sources */,
@@ -246,6 +281,7 @@
 				7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */,
 				7431F050285F37CB007F59B9 /* RoomView.swift in Sources */,
 				743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */,
+				745C22AC28638334003693B5 /* DBExtension.swift in Sources */,
 				7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */,
 				743CB8D6285F95DB000B16AA /* SplashScreenView.swift in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
