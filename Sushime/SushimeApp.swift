@@ -28,12 +28,12 @@ struct SushimeApp: App {
                         switch command {
                         case "create":
                             appPath.tab = .room
-                            appPath.presentCreate = true
+                            appPath.activeSheet = .create
                             break
 
                         case "table":
                             appPath.tab = .room
-                            appPath.presentJoin = true
+                            appPath.activeSheet = .join
                             appPath.tableId = url.lastPathComponent
                             break
                         default: break

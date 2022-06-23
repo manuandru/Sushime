@@ -33,6 +33,9 @@
 		7483506528648E4000B1500C /* sushi-img in Resources */ = {isa = PBXBuildFile; fileRef = 7483506428648E4000B1500C /* sushi-img */; };
 		7483506728648E4700B1500C /* restaurant-img in Resources */ = {isa = PBXBuildFile; fileRef = 7483506628648E4700B1500C /* restaurant-img */; };
 		7483506B286494D700B1500C /* PiattoSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7483506A286494D700B1500C /* PiattoSquareView.swift */; };
+		74D391FC2864A4D800EFF226 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 74D391FB2864A4D800EFF226 /* CodeScanner */; };
+		74E8C1812864D4EF00934323 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1802864D4EF00934323 /* JoinView.swift */; };
+		74E8C1832864D50A00934323 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1822864D50A00934323 /* CreateView.swift */; };
 		74F976F428622FF300FD8FEF /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F976F328622FF300FD8FEF /* AppPath.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,8 @@
 		7483506428648E4000B1500C /* sushi-img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "sushi-img"; sourceTree = "<group>"; };
 		7483506628648E4700B1500C /* restaurant-img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "restaurant-img"; sourceTree = "<group>"; };
 		7483506A286494D700B1500C /* PiattoSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiattoSquareView.swift; sourceTree = "<group>"; };
+		74E8C1802864D4EF00934323 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
+		74E8C1822864D50A00934323 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		74F976F328622FF300FD8FEF /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74D391FC2864A4D800EFF226 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,8 @@
 		7431F04B285F364F007F59B9 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				74E8C17F2864D4C000934323 /* Create */,
+				74E8C17E2864D4BA00934323 /* Join */,
 				7431F04F285F37CB007F59B9 /* RoomView.swift */,
 				743CB8D3285F8483000B16AA /* SelectionButton.swift */,
 			);
@@ -216,6 +224,22 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		74E8C17E2864D4BA00934323 /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				74E8C1802864D4EF00934323 /* JoinView.swift */,
+			);
+			path = Join;
+			sourceTree = "<group>";
+		};
+		74E8C17F2864D4C000934323 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				74E8C1822864D50A00934323 /* CreateView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +256,9 @@
 			dependencies = (
 			);
 			name = Sushime;
+			packageProductDependencies = (
+				74D391FB2864A4D800EFF226 /* CodeScanner */,
+			);
 			productName = Sushime;
 			productReference = 7435ACF5284B865300EC8DFF /* Sushime.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +287,9 @@
 				Base,
 			);
 			mainGroup = 7435ACEC284B865300EC8DFF;
+			packageReferences = (
+				74D391FA2864A4D800EFF226 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 7435ACF6284B865300EC8DFF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -291,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E8C1832864D50A00934323 /* CreateView.swift in Sources */,
 				7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */,
 				7435AD02284B865400EC8DFF /* Persistence.swift in Sources */,
 				743CB8E12860C79A000B16AA /* cameraHelper.swift in Sources */,
@@ -310,6 +341,7 @@
 				743CB8D6285F95DB000B16AA /* SplashScreenView.swift in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
 				74F976F428622FF300FD8FEF /* AppPath.swift in Sources */,
+				74E8C1812864D4EF00934323 /* JoinView.swift in Sources */,
 				7435AD0D284B8C2200EC8DFF /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +547,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74D391FA2864A4D800EFF226 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74D391FB2864A4D800EFF226 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74D391FA2864A4D800EFF226 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7435AD03284B865400EC8DFF /* Sushime.xcdatamodeld */ = {

@@ -10,14 +10,12 @@ import Foundation
 class AppPath: ObservableObject {
     
     @Published var tab: AppTab = .restaurant
-    @Published var presentJoin: Bool = false
-    @Published var presentCreate: Bool = false
+    @Published var activeSheet: ActiveSheet?
     @Published var tableId: String = ""
     
     func restore() {
         tab = .restaurant
-        presentJoin = false
-        presentCreate = false
+        activeSheet = .none
         tableId = ""
     }
 }
@@ -26,4 +24,12 @@ enum AppTab: Hashable {
     case restaurant
     case room
     case account
+}
+
+enum ActiveSheet: String, Identifiable {
+    case join, create, scanner
+    
+    var id: String {
+        return self.rawValue
+    }
 }
