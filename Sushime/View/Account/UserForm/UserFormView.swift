@@ -11,10 +11,10 @@ import PhotosUI
 
 struct UserFormView: View {
     
-    @AppStorage("name") var name: String = ""
-    @AppStorage("surname") var surname: String = ""
-    @AppStorage("username") var username: String = ""
-    @AppStorage("profileImage") var profileImage: Data = Data()
+    @Binding var name: String
+    @Binding var surname: String
+    @Binding var username: String
+    @Binding var profileImage: Data
     @AppStorage("date") var birthDate: Date = Date.now
     
     @State private var isImagePickerDisplay = false
@@ -154,7 +154,7 @@ struct UserFormView: View {
 
 struct UserFormView_Previews: PreviewProvider {
     static var previews: some View {
-        UserFormView()
+        UserFormView(name: .constant("Manu"), surname: .constant("Andru"), username: .constant("manuandru"), profileImage: .constant(Data()))
     }
 }
 

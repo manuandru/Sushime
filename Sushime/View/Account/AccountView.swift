@@ -23,7 +23,7 @@ struct AccountView: View {
             List {
                 Section {
                     NavigationLink {
-                        UserFormView()
+                        UserFormView(name: $name, surname: $surname, username: $username, profileImage: $profileImage)
                             .navigationTitle("Profilo")
                     } label: {
                         HStack {
