@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var appPath: AppPath
+    @AppStorage("name") var name: String = ""
+    @AppStorage("surname") var surname: String = ""
+    @AppStorage("username") var username: String = ""
     
     var body: some View {
         TabView(selection: $appPath.tab) {
@@ -27,7 +30,12 @@ struct RootView: View {
                     Label("Account", systemImage: "person.crop.circle.fill")
                 }
                 .tag(AppTab.account)
+                .badge(needBadge() ? "!" : nil)
         }
+    }
+    
+    func needBadge() -> Bool {
+        name == "" || surname == "" || username == ""
     }
 }
 
