@@ -29,6 +29,10 @@
 		745C22A9286372D0003693B5 /* ristoranti.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A6286372D0003693B5 /* ristoranti.csv */; };
 		745C22AC28638334003693B5 /* DBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745C22AB28638334003693B5 /* DBExtension.swift */; };
 		745C22AE28638DFC003693B5 /* GPSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745C22AD28638DFC003693B5 /* GPSView.swift */; };
+		74834FA12864874A00B1500C /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74834FA02864874A00B1500C /* RestaurantDetailView.swift */; };
+		7483506528648E4000B1500C /* sushi-img in Resources */ = {isa = PBXBuildFile; fileRef = 7483506428648E4000B1500C /* sushi-img */; };
+		7483506728648E4700B1500C /* restaurant-img in Resources */ = {isa = PBXBuildFile; fileRef = 7483506628648E4700B1500C /* restaurant-img */; };
+		7483506B286494D700B1500C /* PiattoSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7483506A286494D700B1500C /* PiattoSquareView.swift */; };
 		74F976F428622FF300FD8FEF /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F976F328622FF300FD8FEF /* AppPath.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		745C22A6286372D0003693B5 /* ristoranti.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ristoranti.csv; sourceTree = "<group>"; };
 		745C22AB28638334003693B5 /* DBExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBExtension.swift; sourceTree = "<group>"; };
 		745C22AD28638DFC003693B5 /* GPSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSView.swift; sourceTree = "<group>"; };
+		74834FA02864874A00B1500C /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
+		7483506428648E4000B1500C /* sushi-img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "sushi-img"; sourceTree = "<group>"; };
+		7483506628648E4700B1500C /* restaurant-img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "restaurant-img"; sourceTree = "<group>"; };
+		7483506A286494D700B1500C /* PiattoSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiattoSquareView.swift; sourceTree = "<group>"; };
 		74F976F328622FF300FD8FEF /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +81,8 @@
 		741E9F38286369F100BB1216 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				7483506628648E4700B1500C /* restaurant-img */,
+				7483506428648E4000B1500C /* sushi-img */,
 				745C22A5286372D0003693B5 /* categorie.csv */,
 				745C22A4286372D0003693B5 /* piatti.csv */,
 				745C22A6286372D0003693B5 /* ristoranti.csv */,
@@ -101,8 +111,10 @@
 		7431F051285F3845007F59B9 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				74835069286494BB00B1500C /* Menu */,
 				7431F052285F3852007F59B9 /* RestaurantView.swift */,
 				745C22AD28638DFC003693B5 /* GPSView.swift */,
+				74834FA02864874A00B1500C /* RestaurantDetailView.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -196,6 +208,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		74835069286494BB00B1500C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				7483506A286494D700B1500C /* PiattoSquareView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,8 +274,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7483506528648E4000B1500C /* sushi-img in Resources */,
 				745C22A7286372D0003693B5 /* piatti.csv in Resources */,
 				7435AD00284B865400EC8DFF /* Preview Assets.xcassets in Resources */,
+				7483506728648E4700B1500C /* restaurant-img in Resources */,
 				745C22A9286372D0003693B5 /* ristoranti.csv in Resources */,
 				745C22A8286372D0003693B5 /* categorie.csv in Resources */,
 				7435ACFD284B865400EC8DFF /* Assets.xcassets in Resources */,
@@ -275,6 +297,7 @@
 				745C22AE28638DFC003693B5 /* GPSView.swift in Sources */,
 				743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */,
 				7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */,
+				7483506B286494D700B1500C /* PiattoSquareView.swift in Sources */,
 				743CB8DE2860AB2E000B16AA /* Model.swift in Sources */,
 				742AE70028623F2100B84DF4 /* AppDelegateForHomeShortcut.swift in Sources */,
 				743CB8DC2860AB22000B16AA /* ViewModel.swift in Sources */,
@@ -283,6 +306,7 @@
 				743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */,
 				745C22AC28638334003693B5 /* DBExtension.swift in Sources */,
 				7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */,
+				74834FA12864874A00B1500C /* RestaurantDetailView.swift in Sources */,
 				743CB8D6285F95DB000B16AA /* SplashScreenView.swift in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
 				74F976F428622FF300FD8FEF /* AppPath.swift in Sources */,

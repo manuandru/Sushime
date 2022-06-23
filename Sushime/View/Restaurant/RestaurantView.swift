@@ -20,10 +20,18 @@ struct RestaurantView: View {
             List {
                 ForEach(ristoranti.filter( { str == "" ? true : $0.nome?.contains(str) ?? true } )) { ristorante in
                     NavigationLink {
-                        Text("Item at \(ristorante.nome ?? "Errore")")
+                        RestaurantDetailView(ristorante: ristorante)
+                            .navigationTitle(ristorante.unwrappedNome)
                     } label: {
-                        Text(ristorante.nome ?? "ristorante")
-                            .font(.title2)
+                        HStack {
+                            Image(uiImage: ristorante.image)
+                                .resizable()
+                                .clipShape(Circle())
+                                .frame(width: 50, height: 50)
+                                .padding(.trailing)
+                            Text(ristorante.unwrappedNome)
+                                .font(.title2)
+                        }
                     }
                 }
                 .navigationTitle("Ristoranti")
