@@ -26,6 +26,8 @@ struct RestaurantView: View {
                             .font(.title2)
                     }
                 }
+                .navigationTitle("Ristoranti")
+                .navigationBarTitleDisplayMode(.large)
             }
             .toolbar {
                 ToolbarItem {
@@ -36,9 +38,8 @@ struct RestaurantView: View {
                     }
                 }
             }
-            .navigationTitle("Ristoranti")
-            .navigationBarTitleDisplayMode(.large)
             .searchable(text: $str, prompt: "Cerca")
+            .disableAutocorrection(true)
             .sheet(isPresented: $presentGPS) {
                 GPSView()
             }

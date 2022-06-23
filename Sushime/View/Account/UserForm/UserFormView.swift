@@ -23,7 +23,7 @@ struct UserFormView: View {
     
     var body: some View {
         
-        Form {
+        List {
             
             HStack {
                 Spacer()
@@ -60,11 +60,12 @@ struct UserFormView: View {
             }
             .listRowBackground(Color(UIColor.systemGroupedBackground))
             
+            
             Section {
                 HStack {
                     TextField("Nome", text: $name)
                         .disableAutocorrection(true)
-                        .textContentType(.name)
+                        .textContentType(.givenName)
                     if name == "" {
                         Image(systemName: "exclamationmark.circle.fill")
                             .foregroundColor(.red)

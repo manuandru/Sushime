@@ -66,9 +66,9 @@ struct AccountView: View {
                     }
                     .frame(height: frameHeight, alignment: .center)
                 }
+                .navigationTitle("Account")
+                .navigationBarTitleDisplayMode(.large)
             }
-            .navigationTitle("Account")
-            .navigationBarTitleDisplayMode(.large)
         }
     }
     
