@@ -18,7 +18,7 @@ struct RoomView: View {
             Spacer()
             
             SelectionButton(action: {
-                
+                appPath.presentCreate = true
             }, content: "Create\nRoom", image: "plus.circle", color: .systemGreen)
             
             SelectionButton(action: {
