@@ -12,6 +12,7 @@ class AppPath: ObservableObject {
     @Published var tab: AppTab = .restaurant
     @Published var activeSheet: ActiveSheet?
     @Published var tableId: String = ""
+    @Published var joinedRestaurant: Ristorante?
     
     func linkToShare() -> String {
         "sushime://table/\(tableId)"
@@ -36,7 +37,7 @@ enum AppTab: Hashable {
 }
 
 enum ActiveSheet: String, Identifiable {
-    case join, create, scanner
+    case join, create, selectingRestaurantToCreate, scanner
     
     var id: String {
         return self.rawValue

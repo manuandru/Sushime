@@ -28,7 +28,7 @@ struct SushimeApp: App {
                         switch command {
                         case "create":
                             appPath.tab = .room
-                            appPath.activeSheet = .create
+                            appPath.activeSheet = .selectingRestaurantToCreate
                             break
 
                         case "table":

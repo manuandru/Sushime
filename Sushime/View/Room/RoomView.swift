@@ -37,7 +37,7 @@ struct RoomView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button {
-                            appPath.activeSheet = .create
+                            appPath.activeSheet = .selectingRestaurantToCreate
                         } label: {
                             Text("Crea stanza")
                             Image(systemName: "plus")
@@ -57,7 +57,8 @@ struct RoomView: View {
             .fullScreenCover(item: $appPath.activeSheet) { sheet in
                 switch sheet {
                 case .join: JoinView(activeSheet: $appPath.activeSheet)
-                case .create: RestaurantSelectionToCreateView(activeSheet: $appPath.activeSheet)
+                case .selectingRestaurantToCreate: RestaurantSelectionToCreateView(activeSheet: $appPath.activeSheet)
+                case .create: CreateView(activeSheet: $appPath.activeSheet)
                 case .scanner:
                     ZStack {
                         CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
@@ -90,9 +91,9 @@ struct RoomView: View {
                             }
                             Spacer()
                         }
-                    }
-                }
-            }
+                    } //END ZStack
+                } //END switch
+            } //END fullScreenCover
             .alert(
                 Text("Per questa funzione è necessario l'accesso alla fotocamera"),
                 isPresented: $isCameraAlertShown,
@@ -115,7 +116,6 @@ struct RoomView: View {
             
         }
     }
-    
     
     func openCameraIfPossible() {
         AVCaptureDevice.requestAccess(for: .video) { accessGranted in

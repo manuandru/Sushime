@@ -29,10 +29,6 @@ struct CreateView: View {
             }
         }
         .padding()
-        .onAppear {
-            appPath.generateRandomRoom()
-            print(appPath.tableId)
-        }
     }
 }
 

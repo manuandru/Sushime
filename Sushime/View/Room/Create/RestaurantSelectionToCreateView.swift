@@ -10,14 +10,14 @@ import SwiftUI
 struct RestaurantSelectionToCreateView: View {
     
     @Binding var activeSheet: ActiveSheet?
-    
-    @State var filter: String = ""
-    
+    @EnvironmentObject var appPath: AppPath
+
     @FetchRequest(sortDescriptors: [])
     private var ristoranti: FetchedResults<Ristorante>
     
     @State var selectedRestaurant: Ristorante?
-    
+    @State var filter: String = ""
+
     var body: some View {
         VStack {
             
@@ -35,15 +35,18 @@ struct RestaurantSelectionToCreateView: View {
                 Spacer()
                 
                 Button {
+
+                    appPath.generateRandomRoom()
+                    appPath.joinedRestaurant = selectedRestaurant
                     withAnimation {
-                        activeSheet = .none
+                        activeSheet = .create
                     }
+
                 } label: {
-                    Image(systemName: "xmark")
+                    Image(systemName: "arrow.forward")
                         .resizable()
                         .scaledToFit()
                 }
-                .frame(height: 20)
                 .disabled(selectedRestaurant == nil)
             }
             .frame(height: 20)
@@ -61,13 +64,6 @@ struct RestaurantSelectionToCreateView: View {
                 SelectableRow(selectedRestaurant: $selectedRestaurant, mySelfRestaurant: ristorante)
             }
         }
-    }
-}
-
-struct RestaurantSelectionToCreateView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantSelectionToCreateView(activeSheet: .constant(.create))
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 
@@ -92,6 +88,18 @@ struct SelectableRow: View {
         }
     }
 }
+
+
+
+
+
+struct RestaurantSelectionToCreateView_Previews: PreviewProvider {
+    static var previews: some View {
+        RestaurantSelectionToCreateView(activeSheet: .constant(.create))
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
 
 
 struct SelectableRow_Previews: PreviewProvider {
