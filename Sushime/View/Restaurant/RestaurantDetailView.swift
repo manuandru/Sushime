@@ -26,9 +26,10 @@ struct RestaurantDetailView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(15)
-                .padding(.bottom)
+                .padding()
             
             Text(ristorante.unwrappedDescrizione)
+                .padding()
             
             Divider()
             
@@ -40,6 +41,7 @@ struct RestaurantDetailView: View {
                 VStack(alignment: .leading) {
                     Text(categoria.unwrappedNome)
                         .font(.title2)
+                        .padding()
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(categoria.piattiArray) { piatto in
@@ -53,7 +55,6 @@ struct RestaurantDetailView: View {
             }
             
         }
-        .padding()
     }
 }
 
