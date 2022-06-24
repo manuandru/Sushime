@@ -26,7 +26,6 @@
 		743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CB8E32860CD53000B16AA /* UserFormView.swift */; };
 		745C22A7286372D0003693B5 /* piatti.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A4286372D0003693B5 /* piatti.csv */; };
 		745C22A8286372D0003693B5 /* categorie.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A5286372D0003693B5 /* categorie.csv */; };
-		745C22A9286372D0003693B5 /* ristoranti.csv in Resources */ = {isa = PBXBuildFile; fileRef = 745C22A6286372D0003693B5 /* ristoranti.csv */; };
 		745C22AC28638334003693B5 /* DBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745C22AB28638334003693B5 /* DBExtension.swift */; };
 		745C22AE28638DFC003693B5 /* GPSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745C22AD28638DFC003693B5 /* GPSView.swift */; };
 		74834FA12864874A00B1500C /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74834FA02864874A00B1500C /* RestaurantDetailView.swift */; };
@@ -40,6 +39,7 @@
 		74E8C1872865A8EF00934323 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1862865A8EF00934323 /* QRCodeView.swift */; };
 		74E8C18A2865BD0D00934323 /* CreatedRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1892865BD0D00934323 /* CreatedRoomView.swift */; };
 		74E8C18E2865C12600934323 /* RestaurantSelectionToCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C18D2865C12600934323 /* RestaurantSelectionToCreateView.swift */; };
+		74E8C1922865E5FB00934323 /* ristoranti.csv in Resources */ = {isa = PBXBuildFile; fileRef = 74E8C1912865E5FB00934323 /* ristoranti.csv */; };
 		74F976F428622FF300FD8FEF /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F976F328622FF300FD8FEF /* AppPath.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,6 @@
 		743CB8E32860CD53000B16AA /* UserFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormView.swift; sourceTree = "<group>"; };
 		745C22A4286372D0003693B5 /* piatti.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = piatti.csv; sourceTree = "<group>"; };
 		745C22A5286372D0003693B5 /* categorie.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = categorie.csv; sourceTree = "<group>"; };
-		745C22A6286372D0003693B5 /* ristoranti.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ristoranti.csv; sourceTree = "<group>"; };
 		745C22AB28638334003693B5 /* DBExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBExtension.swift; sourceTree = "<group>"; };
 		745C22AD28638DFC003693B5 /* GPSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSView.swift; sourceTree = "<group>"; };
 		74834FA02864874A00B1500C /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		74E8C1862865A8EF00934323 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		74E8C1892865BD0D00934323 /* CreatedRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedRoomView.swift; sourceTree = "<group>"; };
 		74E8C18D2865C12600934323 /* RestaurantSelectionToCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSelectionToCreateView.swift; sourceTree = "<group>"; };
+		74E8C1912865E5FB00934323 /* ristoranti.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ristoranti.csv; sourceTree = "<group>"; };
 		74F976F328622FF300FD8FEF /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +99,7 @@
 				7483506428648E4000B1500C /* sushi-img */,
 				745C22A5286372D0003693B5 /* categorie.csv */,
 				745C22A4286372D0003693B5 /* piatti.csv */,
-				745C22A6286372D0003693B5 /* ristoranti.csv */,
+				74E8C1912865E5FB00934323 /* ristoranti.csv */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -328,8 +328,8 @@
 				745C22A7286372D0003693B5 /* piatti.csv in Resources */,
 				7435AD00284B865400EC8DFF /* Preview Assets.xcassets in Resources */,
 				7483506728648E4700B1500C /* restaurant-img in Resources */,
-				745C22A9286372D0003693B5 /* ristoranti.csv in Resources */,
 				745C22A8286372D0003693B5 /* categorie.csv in Resources */,
+				74E8C1922865E5FB00934323 /* ristoranti.csv in Resources */,
 				7435ACFD284B865400EC8DFF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
