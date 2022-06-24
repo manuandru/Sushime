@@ -22,6 +22,7 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
     }
 
     func subscribeTo(table: String) {
+        creationState = CreationState()
         clientMQTT.subscribe("\(table)/#")
     }
 
