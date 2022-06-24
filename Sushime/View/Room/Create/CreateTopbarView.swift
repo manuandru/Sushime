@@ -10,11 +10,13 @@ import SwiftUI
 struct CreateTopbarView: View {
     
     @EnvironmentObject var appPath: AppPath
+    @EnvironmentObject var mqtt: WrapperMQTT
     
     @Binding var activeSheet: ActiveSheet?
     
     @State var presentExitAlert = false
     @State var isQRCodeShown = false
+    @State var isMemberListShown = false
     
     var body: some View {
         HStack {
@@ -45,6 +47,16 @@ struct CreateTopbarView: View {
             
             Spacer()
             
+            Image(systemName: "person.3.fill")
+                .resizable()
+                .frame(width: 75, height: 35)
+                .onTapGesture {
+                    isMemberListShown.toggle()
+                }
+                
+            
+            Spacer()
+            
             Button {
                 isQRCodeShown.toggle()
             } label: {
@@ -55,6 +67,21 @@ struct CreateTopbarView: View {
         }
         .sheet(isPresented: $isQRCodeShown) {
             QRCodeView()
+        }
+        .sheet(isPresented: $isMemberListShown) {
+            VStack {
+                Text("Partecipanti")
+                    .font(.largeTitle)
+                List {
+                    ForEach(mqtt.creationState.users, id: \.self) { user in
+                        Text(user)
+                            .font(.title3)
+                    }
+                }
+                Spacer()
+            }
+            .padding()
+            .ignoresSafeArea()
         }
     }
 }

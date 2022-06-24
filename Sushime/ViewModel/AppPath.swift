@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CocoaMQTT
 
 class AppPath: ObservableObject {
     
@@ -13,6 +14,11 @@ class AppPath: ObservableObject {
     @Published var activeSheet: ActiveSheet?
     @Published var tableId: String = ""
     @Published var joinedRestaurant: Ristorante?
+    
+    
+    func createTable() {
+        generateRandomRoom()
+    }
     
     func linkToShare() -> String {
         "sushime://table/\(tableId)"
@@ -24,9 +30,10 @@ class AppPath: ObservableObject {
         tableId = ""
     }
     
-    func generateRandomRoom() {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        tableId = String((0..<8).map{ _ in letters.randomElement()! })
+    private func generateRandomRoom() {
+//        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+//        tableId = String((0..<8).map{ _ in letters.randomElement()! })
+        tableId = "123"
     }
 }
 

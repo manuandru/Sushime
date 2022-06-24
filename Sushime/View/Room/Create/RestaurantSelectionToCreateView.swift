@@ -36,7 +36,7 @@ struct RestaurantSelectionToCreateView: View {
                 
                 Button {
 
-                    appPath.generateRandomRoom()
+                    appPath.createTable()
                     appPath.joinedRestaurant = selectedRestaurant
                     withAnimation {
                         activeSheet = .create

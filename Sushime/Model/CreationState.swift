@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CreationState {
+    
+    var users: [String] = []
+}

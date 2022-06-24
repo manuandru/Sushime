@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CocoaMQTT
 
 struct CreatedRoomView: View {
+
+    @EnvironmentObject var appPath: AppPath
+    @EnvironmentObject var mqtt: WrapperMQTT
     
     @Binding var createStep: CreateViewStep
     
@@ -24,7 +28,7 @@ struct CreatedRoomView: View {
             
             Button {
                 withAnimation {
-                    createStep = .order
+
                 }
             } label: {
                 Text("Prosegui")
@@ -32,11 +36,14 @@ struct CreatedRoomView: View {
             }
             .buttonStyle(.borderedProminent)
         }
+        .onAppear {
+            mqtt.clientMQTT.subscribe("\(appPath.tableId)/#")
+        }
     }
 }
 
-struct CreatedRoomView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreatedRoomView(createStep: .constant(.created))
-    }
-}
+//struct CreatedRoomView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreatedRoomView(createStep: .constant(.created))
+//    }
+//}
