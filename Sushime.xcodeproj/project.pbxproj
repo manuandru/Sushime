@@ -36,6 +36,10 @@
 		74D391FC2864A4D800EFF226 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 74D391FB2864A4D800EFF226 /* CodeScanner */; };
 		74E8C1812864D4EF00934323 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1802864D4EF00934323 /* JoinView.swift */; };
 		74E8C1832864D50A00934323 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1822864D50A00934323 /* CreateView.swift */; };
+		74E8C1852864E0CD00934323 /* CreateTopbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1842864E0CD00934323 /* CreateTopbarView.swift */; };
+		74E8C1872865A8EF00934323 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1862865A8EF00934323 /* QRCodeView.swift */; };
+		74E8C18A2865BD0D00934323 /* CreatedRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C1892865BD0D00934323 /* CreatedRoomView.swift */; };
+		74E8C18E2865C12600934323 /* RestaurantSelectionToCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8C18D2865C12600934323 /* RestaurantSelectionToCreateView.swift */; };
 		74F976F428622FF300FD8FEF /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F976F328622FF300FD8FEF /* AppPath.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +73,10 @@
 		7483506A286494D700B1500C /* PiattoSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiattoSquareView.swift; sourceTree = "<group>"; };
 		74E8C1802864D4EF00934323 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		74E8C1822864D50A00934323 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		74E8C1842864E0CD00934323 /* CreateTopbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopbarView.swift; sourceTree = "<group>"; };
+		74E8C1862865A8EF00934323 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		74E8C1892865BD0D00934323 /* CreatedRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedRoomView.swift; sourceTree = "<group>"; };
+		74E8C18D2865C12600934323 /* RestaurantSelectionToCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSelectionToCreateView.swift; sourceTree = "<group>"; };
 		74F976F328622FF300FD8FEF /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,9 +243,21 @@
 		74E8C17F2864D4C000934323 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				74E8C1882865BCF700934323 /* Step */,
 				74E8C1822864D50A00934323 /* CreateView.swift */,
+				74E8C1842864E0CD00934323 /* CreateTopbarView.swift */,
+				74E8C1862865A8EF00934323 /* QRCodeView.swift */,
+				74E8C18D2865C12600934323 /* RestaurantSelectionToCreateView.swift */,
 			);
 			path = Create;
+			sourceTree = "<group>";
+		};
+		74E8C1882865BCF700934323 /* Step */ = {
+			isa = PBXGroup;
+			children = (
+				74E8C1892865BD0D00934323 /* CreatedRoomView.swift */,
+			);
+			path = Step;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,12 +352,16 @@
 				743CB8DE2860AB2E000B16AA /* Model.swift in Sources */,
 				742AE70028623F2100B84DF4 /* AppDelegateForHomeShortcut.swift in Sources */,
 				743CB8DC2860AB22000B16AA /* ViewModel.swift in Sources */,
+				74E8C18E2865C12600934323 /* RestaurantSelectionToCreateView.swift in Sources */,
+				74E8C1852864E0CD00934323 /* CreateTopbarView.swift in Sources */,
+				74E8C1872865A8EF00934323 /* QRCodeView.swift in Sources */,
 				7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */,
 				7431F050285F37CB007F59B9 /* RoomView.swift in Sources */,
 				743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */,
 				745C22AC28638334003693B5 /* DBExtension.swift in Sources */,
 				7435AD05284B865400EC8DFF /* Sushime.xcdatamodeld in Sources */,
 				74834FA12864874A00B1500C /* RestaurantDetailView.swift in Sources */,
+				74E8C18A2865BD0D00934323 /* CreatedRoomView.swift in Sources */,
 				743CB8D6285F95DB000B16AA /* SplashScreenView.swift in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
 				74F976F428622FF300FD8FEF /* AppPath.swift in Sources */,

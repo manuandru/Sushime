@@ -56,22 +56,41 @@ struct RoomView: View {
             }
             .fullScreenCover(item: $appPath.activeSheet) { sheet in
                 switch sheet {
-                case .join: JoinView()
-                case .create: CreateView()
+                case .join: JoinView(activeSheet: $appPath.activeSheet)
+                case .create: RestaurantSelectionToCreateView(activeSheet: $appPath.activeSheet)
                 case .scanner:
-                    CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
-                        .ignoresSafeArea()
-                        .alert(
-                            "Nessun codice QR valido rilevato.",
-                            isPresented: $isInvalidQRAlertShown,
-                            actions: {
-                                Button(role: .cancel) {
-                                    appPath.activeSheet = .none
-                                 } label: {
-                                     Text("Ok")
-                                 }
-                            }
+                    ZStack {
+                        CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
+                            .ignoresSafeArea()
+                            .alert(
+                                "Nessun codice QR valido rilevato.",
+                                isPresented: $isInvalidQRAlertShown,
+                                actions: {
+                                    Button(role: .cancel) {
+                                        appPath.activeSheet = .none
+                                     } label: {
+                                         Text("Ok")
+                                     }
+                                }
                         )
+                        VStack {
+                            HStack {
+                                Button {
+                                    withAnimation {
+                                        appPath.activeSheet = .none
+                                    }
+                                } label: {
+                                    Image(systemName: "xmark")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                }
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }
                 }
             }
             .alert(

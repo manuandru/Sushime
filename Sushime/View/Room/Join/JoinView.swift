@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct JoinView: View {
+    
+    @Binding var activeSheet: ActiveSheet?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+        }
     }
 }
 
 struct JoinView_Previews: PreviewProvider {
     static var previews: some View {
-        JoinView()
+        JoinView(activeSheet: .constant(.join))
     }
 }

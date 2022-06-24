@@ -13,10 +13,19 @@ class AppPath: ObservableObject {
     @Published var activeSheet: ActiveSheet?
     @Published var tableId: String = ""
     
+    func linkToShare() -> String {
+        "sushime://table/\(tableId)"
+    }
+    
     func restore() {
         tab = .restaurant
         activeSheet = .none
         tableId = ""
+    }
+    
+    func generateRandomRoom() {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        tableId = String((0..<8).map{ _ in letters.randomElement()! })
     }
 }
 
