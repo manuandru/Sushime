@@ -12,7 +12,6 @@ struct SushimeApp: App {
     let persistenceController = PersistenceController.shared
     
     @StateObject var appPath = AppPath()
-    @StateObject var mqttWrapper = WrapperMQTT()
     
     // To handle home shortcut
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
@@ -23,7 +22,6 @@ struct SushimeApp: App {
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             SplashScreenView()
                 .environmentObject(appPath)
-                .environmentObject(mqttWrapper)
                 .onOpenURL { url in
                     appPath.restore()
                     if let command = url.host {

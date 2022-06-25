@@ -7,32 +7,38 @@
 
 import Foundation
 import CocoaMQTT
+import SwiftUI
 
 class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
 
     var clientMQTT: CocoaMQTT5
     
     @Published var creationState = CreationState()
+    
+    var tableToConnect: String?
 
     init() {
+        creationState = CreationState()
         let clientID = "CocoaMQTT-" + String(ProcessInfo().processIdentifier)
-        clientMQTT = CocoaMQTT5(clientID: clientID, host: "4.tcp.eu.ngrok.io", port: 11221)
-        clientMQTT.delegate = self
-        print(clientMQTT.connect())
+        self.clientMQTT = CocoaMQTT5(clientID: clientID, host: "4.tcp.eu.ngrok.io", port: 11221)
+        self.clientMQTT.delegate = self
+        
+        _ = self.clientMQTT.connect()
+    }
+    
+    deinit {
+        clientMQTT.disconnect()
+        print("sconnesso")
     }
 
     func subscribeTo(table: String) {
         creationState = CreationState()
-        clientMQTT.subscribe("\(table)/#")
+        tableToConnect = "\(table)/#"
     }
 
     func unsubscribeFrom(table: String) {
-        clientMQTT.unsubscribe(table)
+        tableToConnect = .none
     }
-
-    
-    
-    
     
     
     
@@ -44,6 +50,8 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
             switch command {
             case "newUser": handleNewUserJoin(user: message.string)
                 break
+            case "quitUser": handleUserQuit(user: message.string)
+                break
             case "menu": print("menu")
                 break
             default:
@@ -54,13 +62,28 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
 
     private func handleNewUserJoin(user: String?) {
         if let user = user {
-            creationState.users.append(user)
+            withAnimation {
+                creationState.users.append(user)
+            }
+        }
+    }
+    
+    private func handleUserQuit(user: String?) {
+        if let user = user {
+            let indexToRemove = creationState.users.firstIndex(of: user)
+            if let indexToRemove = indexToRemove {
+                withAnimation {
+                    _ = creationState.users.remove(at: indexToRemove)
+                }
+            }
         }
     }
 
 
     func mqtt5(_ mqtt5: CocoaMQTT5, didConnectAck ack: CocoaMQTTCONNACKReasonCode, connAckData: MqttDecodeConnAck?) {
-
+        if let tableToConnect = tableToConnect, clientMQTT.connState == .connected {
+            clientMQTT.subscribe(tableToConnect)
+        }
     }
 
     func mqtt5(_ mqtt5: CocoaMQTT5, didPublishMessage message: CocoaMQTT5Message, id: UInt16) {

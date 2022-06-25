@@ -16,6 +16,8 @@ struct CreateView: View {
     
     @EnvironmentObject var appPath: AppPath
     
+    @StateObject var mqtt = WrapperMQTT()
+
     @Binding var activeSheet: ActiveSheet?
     
     var body: some View {
@@ -23,12 +25,19 @@ struct CreateView: View {
             CreateTopbarView(activeSheet: $activeSheet)
             switch createStep {
             case .created: CreatedRoomView(createStep: $createStep)
-            case .order: Text("Ordering")
+            case .order: OrderMenuRoomView(createStep: $createStep)
             case .confirm: Text("Ordering")
             case .result: Text("Ordering")
             }
         }
         .padding()
+        .environmentObject(mqtt)
+        .onAppear {
+            mqtt.subscribeTo(table: appPath.tableId)
+        }
+        .onDisappear {
+            mqtt.unsubscribeFrom(table: appPath.tableId)
+        }
     }
 }
 

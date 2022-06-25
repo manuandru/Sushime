@@ -1,17 +1,18 @@
 //
-//  CreateRoomView.swift
+//  OrderMenuRoomView.swift
 //  Sushime
 //
 //  Created by Manuel Andruccioli on 24/06/22.
 //
 
 import SwiftUI
-import CocoaMQTT
 
-struct CreatedRoomView: View {
-
-    @EnvironmentObject var appPath: AppPath
-    @EnvironmentObject var mqtt: WrapperMQTT
+struct OrderMenuRoomView: View {
+//    @EnvironmentObject var appPath: AppPath
+//    @EnvironmentObject var mqtt: WrapperMQTT
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Categoria.id, ascending: true)])
+    private var categorie: FetchedResults<Categoria>
     
     @Binding var createStep: CreateViewStep
     
@@ -39,8 +40,18 @@ struct CreatedRoomView: View {
     }
 }
 
-struct CreatedRoomView_Previews: PreviewProvider {
+struct OrderMenuRoomView_Previews: PreviewProvider {
+    
+    private static func createRistorante() -> Ristorante {
+        let ristorante = Ristorante(context: PersistenceController.preview.container.viewContext)
+        ristorante.id = 1
+        ristorante.nome = "Ristorante di prova"
+        ristorante.descrizione = "Bel ristorante di prova"
+        
+        return ristorante
+    }
+    
     static var previews: some View {
-        CreatedRoomView(createStep: .constant(.created))
+        OrderMenuRoomView(createStep: .constant(.order))
     }
 }
