@@ -36,7 +36,7 @@ struct OrderDetailView: View {
                         }
                     }
                 }
-                .padding()
+                .padding([.top])
             }
         }
     }

@@ -80,7 +80,7 @@ struct CreateTopbarView: View {
                 }
                 Spacer()
             }
-            .padding()
+            .padding([.top])
             .ignoresSafeArea()
         }
     }
