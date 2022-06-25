@@ -43,6 +43,7 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
         tableToConnect = .none
     }
     
+    // [idcibo:quantita, ...]
     func generateFinalMenu(from piattiUtente: Dictionary<Piatto, Int>) {
         
         withAnimation {
@@ -108,6 +109,7 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
         }
     }
     
+    // message body -> idtavolo,[idcibo:quantita, ...]
     private func newUserMenu(menuOfUser: String?) {
         if let menu = menuOfUser {
             let data = menu.split(separator: ",")
