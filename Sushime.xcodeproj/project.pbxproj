@@ -13,6 +13,9 @@
 		740B84CB28670E460013B685 /* PiattoSquareForOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84CA28670E460013B685 /* PiattoSquareForOrder.swift */; };
 		740B84CD286714090013B685 /* ConfirmMenuRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84CC286714090013B685 /* ConfirmMenuRoomView.swift */; };
 		740B84D1286723B80013B685 /* ResultMenuRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84D0286723B80013B685 /* ResultMenuRoomView.swift */; };
+		740B84D528673FBE0013B685 /* FinalMenuForMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84D428673FBE0013B685 /* FinalMenuForMaster.swift */; };
+		740B84D7286743EC0013B685 /* MergedMenuRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84D6286743EC0013B685 /* MergedMenuRoomView.swift */; };
+		740B84D928674B530013B685 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84D828674B530013B685 /* OrderDetailView.swift */; };
 		742AE70028623F2100B84DF4 /* AppDelegateForHomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AE6FF28623F2100B84DF4 /* AppDelegateForHomeShortcut.swift */; };
 		7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F04D285F36AD007F59B9 /* AccountView.swift */; };
 		7431F050285F37CB007F59B9 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F04F285F37CB007F59B9 /* RoomView.swift */; };
@@ -57,6 +60,9 @@
 		740B84CA28670E460013B685 /* PiattoSquareForOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiattoSquareForOrder.swift; sourceTree = "<group>"; };
 		740B84CC286714090013B685 /* ConfirmMenuRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMenuRoomView.swift; sourceTree = "<group>"; };
 		740B84D0286723B80013B685 /* ResultMenuRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMenuRoomView.swift; sourceTree = "<group>"; };
+		740B84D428673FBE0013B685 /* FinalMenuForMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalMenuForMaster.swift; sourceTree = "<group>"; };
+		740B84D6286743EC0013B685 /* MergedMenuRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergedMenuRoomView.swift; sourceTree = "<group>"; };
+		740B84D828674B530013B685 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		742AE6FF28623F2100B84DF4 /* AppDelegateForHomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateForHomeShortcut.swift; sourceTree = "<group>"; };
 		7431F04D285F36AD007F59B9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		7431F04F285F37CB007F59B9 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			children = (
 				743CB8E22860CD2B000B16AA /* UserForm */,
 				7431F04D285F36AD007F59B9 /* AccountView.swift */,
+				740B84D828674B530013B685 /* OrderDetailView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 			children = (
 				743CB8DD2860AB2E000B16AA /* Model.swift */,
 				740B84C3286636240013B685 /* CreationState.swift */,
+				740B84D428673FBE0013B685 /* FinalMenuForMaster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				740B84C7286653C30013B685 /* OrderMenuRoomView.swift */,
 				740B84CC286714090013B685 /* ConfirmMenuRoomView.swift */,
 				740B84D0286723B80013B685 /* ResultMenuRoomView.swift */,
+				740B84D6286743EC0013B685 /* MergedMenuRoomView.swift */,
 			);
 			path = Step;
 			sourceTree = "<group>";
@@ -449,10 +458,12 @@
 				743CB8DC2860AB22000B16AA /* ViewModel.swift in Sources */,
 				740B84CD286714090013B685 /* ConfirmMenuRoomView.swift in Sources */,
 				74E8C18E2865C12600934323 /* RestaurantSelectionToCreateView.swift in Sources */,
+				740B84D528673FBE0013B685 /* FinalMenuForMaster.swift in Sources */,
 				740B84C2286622150013B685 /* WrapperMQTT.swift in Sources */,
 				740B84C8286653C30013B685 /* OrderMenuRoomView.swift in Sources */,
 				74E8C1852864E0CD00934323 /* CreateTopbarView.swift in Sources */,
 				74E8C1872865A8EF00934323 /* QRCodeView.swift in Sources */,
+				740B84D928674B530013B685 /* OrderDetailView.swift in Sources */,
 				7431F053285F3852007F59B9 /* RestaurantView.swift in Sources */,
 				7431F050285F37CB007F59B9 /* RoomView.swift in Sources */,
 				743CB8D4285F8483000B16AA /* SelectionButton.swift in Sources */,
@@ -462,6 +473,7 @@
 				74834FA12864874A00B1500C /* RestaurantDetailView.swift in Sources */,
 				74E8C18A2865BD0D00934323 /* CreatedRoomView.swift in Sources */,
 				743CB8D6285F95DB000B16AA /* SplashScreenView.swift in Sources */,
+				740B84D7286743EC0013B685 /* MergedMenuRoomView.swift in Sources */,
 				7435ACF9284B865300EC8DFF /* SushimeApp.swift in Sources */,
 				74F976F428622FF300FD8FEF /* AppPath.swift in Sources */,
 				74E8C1812864D4EF00934323 /* JoinView.swift in Sources */,

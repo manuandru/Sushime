@@ -76,8 +76,6 @@ struct PersistenceController {
 //
 //        print(context)
         
-        // TODO: salvare i dati
-        
         var categories = [Categoria]()
         if let pathCategorie = Bundle.main.path(forResource: "categorie", ofType: "csv") {
             do {
@@ -135,6 +133,8 @@ struct PersistenceController {
                 print(error)
             }
         }
+        
+        try? context.save()
         
     }
 }

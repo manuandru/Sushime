@@ -74,7 +74,7 @@ struct CreateTopbarView: View {
                     .font(.largeTitle)
                 List {
                     ForEach(mqtt.creationState.users, id: \.self) { user in
-                        Text(user)
+                        Text(user.name)
                             .font(.title3)
                     }
                 }

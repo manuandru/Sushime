@@ -23,6 +23,16 @@ extension Categoria {
     }
 }
 
+extension Ordine {
+    public var piattiArray: Array<PiattoInOrdine> {
+        let set = self.inPiattoOrdine as? Set<PiattoInOrdine> ?? []
+        
+        return set.sorted(by: {
+            $0.id > $1.id
+        })
+    }
+}
+
 extension Ristorante {
     public var unwrappedNome: String {
         self.nome ?? "error Ristorante"

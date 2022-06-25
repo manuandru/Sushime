@@ -53,7 +53,7 @@ struct AccountView: View {
                 
                 Section {
                     NavigationLink {
-                        Text("Content")
+                        OrderDetailView()
                             .navigationTitle("Ordini")
                     } label: {
                         Image(systemName: "cart")

@@ -9,5 +9,15 @@ import Foundation
 
 struct CreationState {
     
-    var users: [String] = []
+    var users: [UserFromNetwork] = []
+}
+
+struct UserFromNetwork: Hashable {
+    static func == (lhs: UserFromNetwork, rhs: UserFromNetwork) -> Bool {
+        lhs.name == rhs.name
+    }
+    
+    var orders: Dictionary<Int, Int>
+    
+    var name: String
 }

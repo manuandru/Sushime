@@ -31,8 +31,8 @@ struct CreateView: View {
             case .created: CreatedRoomView(createStep: $createStep)
             case .order: OrderMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
             case .confirm: ConfirmMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
-            case .result: Text("Ordering")
-            case .mergedMenu: Text("merged")
+            case .result: ResultMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
+            case .mergedMenu: MergedMenuRoomView(createStep: $createStep)
             }
         }
         .environmentObject(mqtt)

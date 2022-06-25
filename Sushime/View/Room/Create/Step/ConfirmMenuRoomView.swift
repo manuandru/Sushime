@@ -12,7 +12,6 @@ struct ConfirmMenuRoomView: View {
     @Binding var createStep: CreateViewStep
     
     @Binding var selectedPiatti: Dictionary<Piatto, Int>
-    @State var detailOfPiatto: Piatto?
     
     var body: some View {
         VStack {
