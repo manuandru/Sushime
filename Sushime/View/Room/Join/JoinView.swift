@@ -29,8 +29,8 @@ struct JoinView: View {
                 .padding()
             if mqtt.status == .connected {
                 switch joinStep {
-                case .order: Text("Order")
-                case .confirm: Text("Confirm")
+                case .order: OrderMenuJoinRoomView(joinStep: $joinStep, selectedPiatti: $selectedPiatti)
+                case .confirm: ConfirmMenuJoinRoomView(joinStep: $joinStep, selectedPiatti: $selectedPiatti)
                 case .waitResult: Text("Wait Result")
                 }
             } else {

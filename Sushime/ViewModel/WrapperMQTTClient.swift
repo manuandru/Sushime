@@ -40,6 +40,7 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
     
     deinit {
         clientMQTT.disconnect()
+        print("Chiusura socket")
     }
 
     func subscribeTo(table: String) {
@@ -193,7 +194,9 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
     }
 
     func mqtt5DidDisconnect(_ mqtt5: CocoaMQTT5, withError err: Error?) {
-
+        withAnimation {
+            status = .disconnected
+        }
     }
 }
 
