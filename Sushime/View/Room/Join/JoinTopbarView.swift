@@ -9,10 +9,42 @@ import SwiftUI
 
 struct JoinTopbarView: View {
     
+    @EnvironmentObject var appPath: AppPath
+    
     @Binding var activeSheet: ActiveSheet?
+    @State var presentExitAlert = false
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button(role: .destructive) {
+                presentExitAlert = true
+            } label: {
+                Image(systemName: "xmark")
+                    .resizable()
+                    .frame(width: 35, height: 35)
+            }
+            .confirmationDialog(
+                "Uscirai dalla stanza. L'azione è irreversibile",
+                isPresented: $presentExitAlert,
+                actions: {
+                    Button(role: .destructive) {
+                        activeSheet = .none
+                    } label: {
+                        Text("Elimina stanza")
+                    }
+                    Button(role: .cancel) {} label: {
+                        Text("Annulla")
+                    }
+                },
+                message: {
+                    Text("Uscirai dalla stanza. L'azione è irreversibile")
+                }
+            )
+            
+            Spacer()
+            
+            Text("Stanza: \(appPath.tableId)")
+        }
     }
 }
 

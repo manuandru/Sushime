@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct WaitingToJoinView: View {
+    
+    @EnvironmentObject var mqtt: WrapperMQTTClient
+    
     var body: some View {
-        ProgressView()
-            .scaleEffect(1.5)
+        VStack {
+            Spacer()
+            Text("\(mqtt.status.description)")
+                .font(.title3)
+                .padding()
+            ProgressView()
+                .scaleEffect(1.5)
+            Spacer()
+        }
     }
 }
 

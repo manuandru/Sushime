@@ -19,6 +19,8 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
     
 //    var finalMenu = FinalMenuForMaster()
     
+    @Published var bol = false
+    
     
     var tableToConnect: String?
 
@@ -26,15 +28,18 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
 //        creationState = CreationState()
         let clientID = "CocoaMQTT-" + String(ProcessInfo().processIdentifier)
         self.clientMQTT = CocoaMQTT5(clientID: clientID, host: "4.tcp.eu.ngrok.io", port: 11221)
-        self.clientMQTT.delegate = self
         status = self.clientMQTT.connState
+        self.clientMQTT.delegate = self
+
+        clientMQTT.autoReconnect = true
+        clientMQTT.autoReconnectTimeInterval = 1
         
-        _ = self.clientMQTT.connect()
+        
+        _ = clientMQTT.connect()
     }
     
     deinit {
         clientMQTT.disconnect()
-        print("sconnesso")
     }
 
     func subscribeTo(table: String) {
@@ -43,7 +48,7 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
     }
 
     func unsubscribeFrom(table: String) {
-        if let tableToConnect = tableToConnect {
+        if let tableToConnect = tableToConnect, clientMQTT.connState == .connected {
             clientMQTT.unsubscribe(tableToConnect)
         }
         tableToConnect = .none
@@ -103,7 +108,7 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
 //            }
 //        }
 //    }
-//    
+//
 //    private func handleUserQuit(user: String?) {
 //        if let user = user {
 //            let indexToRemove = creationState.users.firstIndex(where: { $0.name == user })
@@ -114,7 +119,7 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
 //            }
 //        }
 //    }
-//    
+//
 //    // message body -> idtavolo,[idcibo:quantita, ...]
 //    private func newUserMenu(menuOfUser: String?) {
 //        if let menu = menuOfUser {
@@ -131,12 +136,12 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
 //                        }
 //                    }
 //                }
-//                
+//
 //                withAnimation {
 //                    creationState.users = creationState.users.filter( {$0.name != user} )
 //                    creationState.users.append(UserFromNetwork(orders: order, name: String(user)))
 //                }
-//                
+//
 //            }
 //        }
 //    }
@@ -144,6 +149,9 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
 
     func mqtt5(_ mqtt5: CocoaMQTT5, didConnectAck ack: CocoaMQTTCONNACKReasonCode, connAckData: MqttDecodeConnAck?) {
         if let tableToConnect = tableToConnect, clientMQTT.connState == .connected {
+            withAnimation {
+                status = clientMQTT.connState
+            }
             clientMQTT.subscribe(tableToConnect)
         }
     }

@@ -42,6 +42,7 @@ struct SelectTableToJoinView: View {
                 .background(.quaternary)
                 .cornerRadius(15)
                 .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
             
             Button {
                 withAnimation {
@@ -58,6 +59,9 @@ struct SelectTableToJoinView: View {
             Spacer()
         }
         .padding()
+        .onAppear {
+            appPath.tableId = ""
+        }
     }
 }
 
