@@ -43,7 +43,7 @@ struct RoomView: View {
                             Image(systemName: "plus")
                         }
                         Button {
-                            appPath.activeSheet = .join
+                            appPath.activeSheet = .selectingTable
                         } label: {
                             Text("Inserisci codice")
                             Image(systemName: "keyboard")
@@ -58,6 +58,7 @@ struct RoomView: View {
                 switch sheet {
                 case .join: JoinView(activeSheet: $appPath.activeSheet)
                 case .selectingRestaurantToCreate: RestaurantSelectionToCreateView(activeSheet: $appPath.activeSheet)
+                case .selectingTable: SelectTableToJoinView(activeSheet: $appPath.activeSheet)
                 case .create: CreateView(activeSheet: $appPath.activeSheet)
                 case .scanner:
                     ZStack {
@@ -134,8 +135,7 @@ struct RoomView: View {
         case .success(let result):
             if result.string.starts(with: "sushime://table/") {
                 appPath.activeSheet = .join
-                appPath.tableId = "1"
-                print(result.string.split(separator: "/"))
+                appPath.tableId = String(result.string.split(separator: "/")[2])
             } else {
                 isInvalidQRAlertShown.toggle()
                 return

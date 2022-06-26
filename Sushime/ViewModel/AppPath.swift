@@ -44,7 +44,7 @@ enum AppTab: Hashable {
 }
 
 enum ActiveSheet: String, Identifiable {
-    case join, create, selectingRestaurantToCreate, scanner
+    case join, create, selectingRestaurantToCreate, selectingTable, scanner
     
     var id: String {
         return self.rawValue
