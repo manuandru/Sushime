@@ -22,6 +22,7 @@
 		740B84E328685C390013B685 /* WaitingToJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84E228685C390013B685 /* WaitingToJoinView.swift */; };
 		740B84E5286873680013B685 /* OrderMenuJoinRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84E4286873680013B685 /* OrderMenuJoinRoomView.swift */; };
 		740B84E7286874700013B685 /* ConfirmMenuJoinRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84E6286874700013B685 /* ConfirmMenuJoinRoomView.swift */; };
+		740B84E9286877400013B685 /* WaitFullMenuJoinRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B84E8286877400013B685 /* WaitFullMenuJoinRoomView.swift */; };
 		742AE70028623F2100B84DF4 /* AppDelegateForHomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AE6FF28623F2100B84DF4 /* AppDelegateForHomeShortcut.swift */; };
 		7431F04E285F36AD007F59B9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F04D285F36AD007F59B9 /* AccountView.swift */; };
 		7431F050285F37CB007F59B9 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7431F04F285F37CB007F59B9 /* RoomView.swift */; };
@@ -75,6 +76,7 @@
 		740B84E228685C390013B685 /* WaitingToJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingToJoinView.swift; sourceTree = "<group>"; };
 		740B84E4286873680013B685 /* OrderMenuJoinRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuJoinRoomView.swift; sourceTree = "<group>"; };
 		740B84E6286874700013B685 /* ConfirmMenuJoinRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMenuJoinRoomView.swift; sourceTree = "<group>"; };
+		740B84E8286877400013B685 /* WaitFullMenuJoinRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitFullMenuJoinRoomView.swift; sourceTree = "<group>"; };
 		742AE6FF28623F2100B84DF4 /* AppDelegateForHomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateForHomeShortcut.swift; sourceTree = "<group>"; };
 		7431F04D285F36AD007F59B9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		7431F04F285F37CB007F59B9 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				740B84E228685C390013B685 /* WaitingToJoinView.swift */,
 				740B84E4286873680013B685 /* OrderMenuJoinRoomView.swift */,
 				740B84E6286874700013B685 /* ConfirmMenuJoinRoomView.swift */,
+				740B84E8286877400013B685 /* WaitFullMenuJoinRoomView.swift */,
 			);
 			path = Step;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				743CB8E12860C79A000B16AA /* cameraHelper.swift in Sources */,
 				745C22AE28638DFC003693B5 /* GPSView.swift in Sources */,
 				743CB8E42860CD53000B16AA /* UserFormView.swift in Sources */,
+				740B84E9286877400013B685 /* WaitFullMenuJoinRoomView.swift in Sources */,
 				740B84E5286873680013B685 /* OrderMenuJoinRoomView.swift in Sources */,
 				7435ACFB284B865300EC8DFF /* ContentView.swift in Sources */,
 				7483506B286494D700B1500C /* PiattoSquareView.swift in Sources */,

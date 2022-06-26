@@ -23,6 +23,8 @@ struct JoinView: View {
     @State var selectedPiatti: Dictionary<Piatto, Int> = [:]
     @State var joinStep: JoinViewStep = .order
     
+    @AppStorage("username") var username: String = "Unknown"
+    
     var body: some View {
         VStack {
             JoinTopbarView(activeSheet: $activeSheet)
@@ -31,7 +33,7 @@ struct JoinView: View {
                 switch joinStep {
                 case .order: OrderMenuJoinRoomView(joinStep: $joinStep, selectedPiatti: $selectedPiatti)
                 case .confirm: ConfirmMenuJoinRoomView(joinStep: $joinStep, selectedPiatti: $selectedPiatti)
-                case .waitResult: Text("Wait Result")
+                case .waitResult: WaitFullMenuJoinRoomView(selectedPiatti: $selectedPiatti)
                 }
             } else {
                 WaitingToJoinView()
@@ -39,10 +41,7 @@ struct JoinView: View {
         }
         .environmentObject(mqtt)
         .onAppear {
-            mqtt.subscribeTo(table: appPath.tableId)
-        }
-        .onDisappear {
-            mqtt.unsubscribeFrom(table: appPath.tableId)
+            mqtt.subscribeTo(table: appPath.tableId, username: username)
         }
     }
 }

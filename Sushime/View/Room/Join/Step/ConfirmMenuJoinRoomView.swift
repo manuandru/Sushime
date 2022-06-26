@@ -11,6 +11,8 @@ struct ConfirmMenuJoinRoomView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
+    @EnvironmentObject var mqtt: WrapperMQTTClient
+    
     @Binding var joinStep: JoinViewStep
     
     @Binding var selectedPiatti: Dictionary<Piatto, Int>
@@ -94,8 +96,8 @@ struct ConfirmMenuJoinRoomView: View {
                     actions: {
                         Button(role: .destructive) {
                             
-                            // TODO: send menu to master
-//                            mqtt.generateFinalMenu(from: selectedPiatti)
+                            
+                            mqtt.publishFinalMenu(from: selectedPiatti)
                             withAnimation {
                                 joinStep = .waitResult
                             }

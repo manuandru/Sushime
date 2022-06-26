@@ -22,11 +22,11 @@ struct SplashScreenView: View {
     @FetchRequest(sortDescriptors: [])
     private var categorie: FetchedResults<Categoria>
     
-//    @FetchRequest(sortDescriptors: [])
-//    private var piattiInOrdine: FetchedResults<PiattoInOrdine>
-//
-//    @FetchRequest(sortDescriptors: [])
-//    private var ordini: FetchedResults<Ordine>
+    @FetchRequest(sortDescriptors: [])
+    private var piattiInOrdine: FetchedResults<PiattoInOrdine>
+
+    @FetchRequest(sortDescriptors: [])
+    private var ordini: FetchedResults<Ordine>
     
     
     

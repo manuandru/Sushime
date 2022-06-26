@@ -10,6 +10,7 @@ import SwiftUI
 struct JoinTopbarView: View {
     
     @EnvironmentObject var appPath: AppPath
+    @EnvironmentObject var mqtt: WrapperMQTTClient
     
     @Binding var activeSheet: ActiveSheet?
     @State var presentExitAlert = false
@@ -28,7 +29,10 @@ struct JoinTopbarView: View {
                 isPresented: $presentExitAlert,
                 actions: {
                     Button(role: .destructive) {
-                        activeSheet = .none
+                        withAnimation {
+                            activeSheet = .none
+                            mqtt.unsubscribeFrom()
+                        }
                     } label: {
                         Text("Elimina stanza")
                     }

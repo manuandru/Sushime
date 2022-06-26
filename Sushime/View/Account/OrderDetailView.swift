@@ -24,20 +24,20 @@ struct OrderDetailView: View {
                     Text("\(formatDate(date: ordine.data) ) - \(ordine.ristorante?.unwrappedNome ?? "error")")
                 }
             }
-            .sheet(item: $popup) { order in
-                VStack {
-                    Text("\(formatDate(date: order.data) ) - \(order.ristorante?.unwrappedNome ?? "error")")
-                        .font(.largeTitle)
-                    List(order.piattiArray) { piatto in
-                        HStack {
-                            Text("\(piatto.piatto?.unwrappedNome ?? "error")")
-                            Spacer()
-                            Text("\(piatto.quantita)")
-                        }
+        }
+        .sheet(item: $popup) { order in
+            VStack {
+                Text("\(formatDate(date: order.data) ) - \(order.ristorante?.unwrappedNome ?? "error")")
+                    .font(.largeTitle)
+                List(order.piattiArray) { piatto in
+                    HStack {
+                        Text("\(piatto.piatto?.unwrappedNome ?? "error")")
+                        Spacer()
+                        Text("\(piatto.quantita)")
                     }
                 }
-                .padding([.top])
             }
+            .padding([.top])
         }
     }
     

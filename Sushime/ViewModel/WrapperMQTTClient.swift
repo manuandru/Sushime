@@ -15,13 +15,14 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
     
     @Published var status: CocoaMQTTConnState
     
-//    @Published var creationState = CreationState()
+    @Published var finalMenu: Dictionary<Int, Int> = [:]
     
-//    var finalMenu = FinalMenuForMaster()
+    var username: String = ""
     
-    @Published var bol = false
+    var restaurantId: Int?
     
     
+    var tableId: String?
     var tableToConnect: String?
 
     init() {
@@ -43,109 +44,71 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
         print("Chiusura socket")
     }
 
-    func subscribeTo(table: String) {
+    func subscribeTo(table: String, username: String) {
 //        creationState = CreationState()
+        tableId = table
         tableToConnect = "\(table)/#"
+        self.username = username
     }
 
-    func unsubscribeFrom(table: String) {
+    func unsubscribeFrom() {
         if let tableToConnect = tableToConnect, clientMQTT.connState == .connected {
             clientMQTT.unsubscribe(tableToConnect)
+            clientMQTT.publish("\(tableId ?? "")/quitUser", withString: username, properties: MqttPublishProperties())
         }
         tableToConnect = .none
     }
     
     // [idcibo:quantita, ...]
-    func generateFinalMenu(from piattiUtente: Dictionary<Piatto, Int>) {
+    func publishFinalMenu(from piattiUtente: Dictionary<Piatto, Int>) {
         
-//        withAnimation {
-//            finalMenu = FinalMenuForMaster()
-//
-//            for user in creationState.users {
-//                for item in user.orders {
-//                    if finalMenu.menu[item.key] == nil {
-//                        finalMenu.menu[item.key] = 0
-//                    }
-//                    finalMenu.menu[item.key]! += item.value
-//                }
-//            }
-//
-//            for piatto in piattiUtente {
-//
-//                if finalMenu.menu[Int(piatto.key.id)] == nil {
-//                    finalMenu.menu[Int(piatto.key.id)] = 0
-//                }
-//                finalMenu.menu[Int(piatto.key.id)]! += piatto.value
-//            }
-//        }
-//
+        var myMenu: String = "\(username)"
+        
+        for piatto in piattiUtente {
+            myMenu += ",\(piatto.key.id):\(piatto.value)"
+        }
+        
+        clientMQTT.publish("\(tableId ?? "")/menu", withString: myMenu, properties: MqttPublishProperties())
         
     }
     
     
     
     func mqtt5(_ mqtt5: CocoaMQTT5, didReceiveMessage message: CocoaMQTT5Message, id: UInt16, publishData: MqttDecodePublish?) {
-//        let topics = message.topic.split(separator: "/")
-//
-//        if topics.count == 2 {
-//            let command = topics[1]
-//            switch command {
-//            case "newUser": handleNewUserJoin(user: message.string)
-//                break
-//            case "quitUser": handleUserQuit(user: message.string)
-//                break
-//            case "menu": newUserMenu(menuOfUser: message.string)
-//                break
-//            default:
-//                print("Not Handled: \(command)")
-//            }
-//        }
-    }
+        let topics = message.topic.split(separator: "/")
 
-//    private func handleNewUserJoin(user: String?) {
-//        if let user = user {
-//            withAnimation {
-//                creationState.users.append(UserFromNetwork(orders: [:], name: user))
-//            }
-//        }
-//    }
-//
-//    private func handleUserQuit(user: String?) {
-//        if let user = user {
-//            let indexToRemove = creationState.users.firstIndex(where: { $0.name == user })
-//            if let indexToRemove = indexToRemove {
-//                withAnimation {
-//                    _ = creationState.users.remove(at: indexToRemove)
-//                }
-//            }
-//        }
-//    }
-//
-//    // message body -> idtavolo,[idcibo:quantita, ...]
-//    private func newUserMenu(menuOfUser: String?) {
-//        if let menu = menuOfUser {
-//            let data = menu.split(separator: ",")
-//            if data.count > 0 {
-//                var order: Dictionary<Int, Int> = [:]
-//                let user = data[0]
-//                for piatto in data[1..<data.count] {
-//                    if piatto.split(separator: ":").count == 2 {
-//                        let id = Int(piatto.split(separator: ":")[0])
-//                        let quantita = Int(piatto.split(separator: ":")[1])
-//                        if let id = id, let quantita = quantita {
-//                            order[id] = quantita
-//                        }
-//                    }
-//                }
-//
-//                withAnimation {
-//                    creationState.users = creationState.users.filter( {$0.name != user} )
-//                    creationState.users.append(UserFromNetwork(orders: order, name: String(user)))
-//                }
-//
-//            }
-//        }
-//    }
+        if topics.count == 2 {
+            let command = topics[1]
+            switch command {
+            case "finalMenu": handleFinalMenu(menu: message.string)
+                break
+            default:
+                print("Not Handled: \(command)")
+            }
+        }
+    }
+    
+    // message body -> idristorante,[idcibo:quantita, ...]
+    private func handleFinalMenu(menu: String?) {
+        if let menu = menu {
+            let data = menu.split(separator: ",")
+            if data.count > 0 {
+                restaurantId = Int(data[0])
+                for piatto in data[1..<data.count] {
+                    if piatto.split(separator: ":").count == 2 {
+                        let id = Int(piatto.split(separator: ":")[0])
+                        let quantita = Int(piatto.split(separator: ":")[1])
+                        if let id = id, let quantita = quantita {
+                            withAnimation {
+                                finalMenu[id] = quantita
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
 
 
     func mqtt5(_ mqtt5: CocoaMQTT5, didConnectAck ack: CocoaMQTTCONNACKReasonCode, connAckData: MqttDecodeConnAck?) {
@@ -154,6 +117,7 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
                 status = clientMQTT.connState
             }
             clientMQTT.subscribe(tableToConnect)
+            clientMQTT.publish("\(tableId ?? "")/newUser", withString: username, properties: MqttPublishProperties())
         }
     }
 

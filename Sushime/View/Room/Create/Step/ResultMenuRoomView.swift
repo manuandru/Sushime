@@ -109,8 +109,6 @@ struct ResultMenuRoomView: View {
     
     func saveOrderInDB() {
         
-        // TODO: save viewContext
-        
         let newOrdine = Ordine(context: viewContext)
         newOrdine.id = Int32(ordini.count)
         newOrdine.ristorante = appPath.joinedRestaurant
