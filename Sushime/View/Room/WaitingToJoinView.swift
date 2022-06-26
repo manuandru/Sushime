@@ -7,14 +7,11 @@
 
 import SwiftUI
 
-struct WaitingToJoinView: View {
-    
-    @EnvironmentObject var mqtt: WrapperMQTTClient
-    
+struct WaitingForConnectionView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("\(mqtt.status.description)")
+            Text("In attesa della connessione...")
                 .font(.title3)
                 .padding()
             ProgressView()
@@ -24,8 +21,8 @@ struct WaitingToJoinView: View {
     }
 }
 
-struct WaitingToJoinView_Previews: PreviewProvider {
+struct WaitingForConnectionView_Previews: PreviewProvider {
     static var previews: some View {
-        WaitingToJoinView()
+        WaitingForConnectionView()
     }
 }

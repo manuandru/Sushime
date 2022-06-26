@@ -27,12 +27,16 @@ struct CreateView: View {
         VStack {
             CreateTopbarView(activeSheet: $activeSheet)
                 .padding()
-            switch createStep {
-            case .created: CreatedRoomView(createStep: $createStep)
-            case .order: OrderMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
-            case .confirm: ConfirmMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
-            case .result: ResultMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
-            case .mergedMenu: MergedMenuRoomView(createStep: $createStep)
+            if mqtt.status == .connected {
+                switch createStep {
+                case .created: CreatedRoomView(createStep: $createStep)
+                case .order: OrderMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
+                case .confirm: ConfirmMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
+                case .result: ResultMenuRoomView(createStep: $createStep, selectedPiatti: $selectedPiatti)
+                case .mergedMenu: MergedMenuRoomView(createStep: $createStep)
+                }
+            } else {
+                WaitingForConnectionView()
             }
         }
         .environmentObject(mqtt)

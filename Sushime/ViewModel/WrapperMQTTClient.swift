@@ -41,7 +41,7 @@ class WrapperMQTTClient: CocoaMQTT5Delegate, ObservableObject {
     
     deinit {
         clientMQTT.disconnect()
-        print("Chiusura socket")
+        print("Disconnesso")
     }
 
     func subscribeTo(table: String, username: String) {

@@ -36,7 +36,7 @@ struct JoinView: View {
                 case .waitResult: WaitFullMenuJoinRoomView(selectedPiatti: $selectedPiatti)
                 }
             } else {
-                WaitingToJoinView()
+                WaitingForConnectionView()
             }
         }
         .environmentObject(mqtt)

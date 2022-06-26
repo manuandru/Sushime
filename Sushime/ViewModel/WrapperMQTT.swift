@@ -14,17 +14,24 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
     var clientMQTT: CocoaMQTT5
     
     @Published var creationState = CreationState()
+    @Published var status: CocoaMQTTConnState
     
     var finalMenu = FinalMenuForMaster()
     
+    var tableId: String?
     
     var tableToConnect: String?
+    
 
     init() {
         creationState = CreationState()
         let clientID = "CocoaMQTT-" + String(ProcessInfo().processIdentifier)
         self.clientMQTT = CocoaMQTT5(clientID: clientID, host: "4.tcp.eu.ngrok.io", port: 11221)
+        status = self.clientMQTT.connState
         self.clientMQTT.delegate = self
+        
+        clientMQTT.autoReconnect = true
+        clientMQTT.autoReconnectTimeInterval = 1
         
         _ = self.clientMQTT.connect()
     }
@@ -36,6 +43,7 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
 
     func subscribeTo(table: String) {
         creationState = CreationState()
+        tableId = table
         tableToConnect = "\(table)/#"
     }
 
@@ -44,7 +52,7 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
     }
     
     // [idcibo:quantita, ...]
-    func generateFinalMenu(from piattiUtente: Dictionary<Piatto, Int>) {
+    func generateFinalMenu(from piattiUtente: Dictionary<Piatto, Int>, restaurantId: Int) {
         
         withAnimation {
             finalMenu = FinalMenuForMaster()
@@ -67,7 +75,19 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
             }
         }
         
+        publishMergedMenu(restaurantId: restaurantId)
         
+    }
+    
+    
+    private func publishMergedMenu(restaurantId: Int) {
+        var mergedMenu: String = "\(restaurantId)"
+        
+        for piatto in finalMenu.menu {
+            mergedMenu += ",\(piatto.key):\(piatto.value)"
+        }
+        
+        clientMQTT.publish("\(tableId ?? "")/finalMenu", withString: mergedMenu, properties: MqttPublishProperties())
     }
     
     
@@ -138,6 +158,9 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
 
     func mqtt5(_ mqtt5: CocoaMQTT5, didConnectAck ack: CocoaMQTTCONNACKReasonCode, connAckData: MqttDecodeConnAck?) {
         if let tableToConnect = tableToConnect, clientMQTT.connState == .connected {
+            withAnimation {
+                status = clientMQTT.connState
+            }
             clientMQTT.subscribe(tableToConnect)
         }
     }
@@ -179,6 +202,8 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
     }
 
     func mqtt5DidDisconnect(_ mqtt5: CocoaMQTT5, withError err: Error?) {
-
+        withAnimation {
+            status = .disconnected
+        }
     }
 }

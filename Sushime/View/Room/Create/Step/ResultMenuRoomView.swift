@@ -84,7 +84,7 @@ struct ResultMenuRoomView: View {
                         Button(role: .destructive) {
                             
                             saveOrderInDB()
-                            mqtt.generateFinalMenu(from: selectedPiatti)
+                            mqtt.generateFinalMenu(from: selectedPiatti, restaurantId: Int(appPath.joinedRestaurant?.id ?? 0))
                             withAnimation {
                                 createStep = .mergedMenu
                             }

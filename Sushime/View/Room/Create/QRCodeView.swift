@@ -35,7 +35,7 @@ struct QRCodeView: View {
                 .font(.title)
                 .padding()
             
-            Image(uiImage: UIImage(data: getQRCode(text: appPath.tableId) ?? Data()) ?? UIImage())
+            Image(uiImage: UIImage(data: getQRCode(text: appPath.linkToShare()) ?? Data()) ?? UIImage())
                 .resizable()
                 .frame(width: 300, height: 300)
             

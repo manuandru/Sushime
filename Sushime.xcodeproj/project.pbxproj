@@ -140,7 +140,6 @@
 		740B84E028685C120013B685 /* Step */ = {
 			isa = PBXGroup;
 			children = (
-				740B84E228685C390013B685 /* WaitingToJoinView.swift */,
 				740B84E4286873680013B685 /* OrderMenuJoinRoomView.swift */,
 				740B84E6286874700013B685 /* ConfirmMenuJoinRoomView.swift */,
 				740B84E8286877400013B685 /* WaitFullMenuJoinRoomView.swift */,
@@ -166,6 +165,7 @@
 				74E8C17F2864D4C000934323 /* Create */,
 				74E8C17E2864D4BA00934323 /* Join */,
 				7431F04F285F37CB007F59B9 /* RoomView.swift */,
+				740B84E228685C390013B685 /* WaitingToJoinView.swift */,
 				743CB8D3285F8483000B16AA /* SelectionButton.swift */,
 			);
 			path = Room;
