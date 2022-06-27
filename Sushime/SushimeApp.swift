@@ -16,8 +16,8 @@ struct SushimeApp: App {
     // To handle home shortcut
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
-    static let MQTTBrokerIp = "7.tcp.eu.ngrok.io"
-    static let MQTTBrokerPort = 14457
+    static let MQTTBrokerIp = "broker.emqx.io"//"7.tcp.eu.ngrok.io"
+    static let MQTTBrokerPort = 1883
 
     var body: some Scene {
         WindowGroup {

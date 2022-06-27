@@ -30,7 +30,7 @@ struct RoomView: View {
                             .font(.title)
                     }
                 }
-                .navigationTitle("Room")
+                .navigationTitle("Stanza")
                 .navigationBarTitleDisplayMode(.large)
             }
             .toolbar {

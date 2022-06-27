@@ -22,7 +22,7 @@ struct RootView: View {
                 .tag(AppTab.restaurant)
             RoomView()
                 .tabItem {
-                    Label("Room", systemImage: "person.3.fill")
+                    Label("Stanza", systemImage: "person.3.fill")
                 }
                 .tag(AppTab.room)
             AccountView()
