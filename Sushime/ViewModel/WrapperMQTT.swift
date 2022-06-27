@@ -26,7 +26,7 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
     init() {
         creationState = CreationState()
         let clientID = "CocoaMQTT-" + String(ProcessInfo().processIdentifier)
-        self.clientMQTT = CocoaMQTT5(clientID: clientID, host: "4.tcp.eu.ngrok.io", port: 11221)
+        self.clientMQTT = CocoaMQTT5(clientID: clientID, host: SushimeApp.MQTTBrokerIp, port: UInt16(SushimeApp.MQTTBrokerPort))
         status = self.clientMQTT.connState
         self.clientMQTT.delegate = self
         
