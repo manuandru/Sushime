@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import CoreLocationUI
+import CoreLocation
 
 struct RestaurantView: View {
     
     @State private var str = ""
     @State private var presentGPS = false
+    
+    @StateObject var locationManager = LocationManager()
 
     @FetchRequest(sortDescriptors: [])
     private var ristoranti: FetchedResults<Ristorante>
@@ -39,17 +43,21 @@ struct RestaurantView: View {
             }
             .toolbar {
                 ToolbarItem {
-                    Button {
+                    LocationButton(.currentLocation) {
+                        locationManager.requestLocation()
                         presentGPS.toggle()
-                    } label: {
-                        Image(systemName: "location.fill")
                     }
+                    .foregroundColor(.white)
+                    .cornerRadius(50)
+                    .labelStyle(.iconOnly)
+                    .symbolVariant(.fill)
                 }
             }
             .searchable(text: $str, prompt: "Cerca")
             .disableAutocorrection(true)
-            .sheet(isPresented: $presentGPS) {
-                GPSView()
+            .fullScreenCover(isPresented: $presentGPS) {
+                GPSView(isPresented: $presentGPS)
+                    .environmentObject(locationManager)
             }
         }
     }
