@@ -113,7 +113,8 @@ class WrapperMQTT: CocoaMQTT5Delegate, ObservableObject {
     private func handleNewUserJoin(user: String?) {
         if let user = user {
             withAnimation {
-                creationState.users.append(UserFromNetwork(orders: [:], name: user))
+                creationState.users = creationState.users.filter( {$0.name != user} )
+                creationState.users.append(UserFromNetwork(orders: [:], name: String(user)))
             }
         }
     }

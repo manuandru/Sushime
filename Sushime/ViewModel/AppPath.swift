@@ -31,8 +31,8 @@ class AppPath: ObservableObject {
     }
     
     private func generateRandomRoom() {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        tableId = String((0..<8).map{ _ in letters.randomElement()! })
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        tableId = String((0..<5).map{ _ in letters.randomElement()! })
 //        tableId = "123"
     }
 }
